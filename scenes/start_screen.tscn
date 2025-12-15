@@ -72,17 +72,30 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.047000002
 anchor_bottom = 0.062000003
-offset_left = 63.0
-offset_top = 45.0
-offset_right = 342.856
-offset_bottom = 566.824
+offset_left = 70.0
+offset_top = 159.0
+offset_right = 386.856
+offset_bottom = 499.824
 
 [node name="Label" type="Label" parent="HowToPlayPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "playing instrctions
-"
+offset_left = 23.0
+offset_top = 41.0
+offset_right = 366.0
+offset_bottom = 284.0
+text = "Instrutions 
+
+- Ss the player enters, they 
+will have the chance to 
+explore the city.
+While doing so, they need
+to also be on the hunt for 
+coins. 
+
+As they enter new, 
+places as they countinue 
+their search they are 
+inclined to complete tasks. "
 
 [node name="BackButton" type="Button" parent="HowToPlayPanel"]
 layout_mode = 0
