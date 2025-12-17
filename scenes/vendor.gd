@@ -1,5 +1,8 @@
 extends Area2D
 
+const TASK_ID := "sell_apple"
+const REWARD := 10
+
 var player_inside := false
 
 func _ready():
@@ -22,32 +25,33 @@ func _on_body_exited(body):
 		TaskManager.near_vendor = false
 
 func handle_task():
-	# If task already completed, don't repeat it
-	if "sell_apple" in TaskManager.completed_tasks:
+	# 🚫 Task already done
+	if TASK_ID in TaskManager.completed_tasks:
 		print("Vendor: You already sold an apple!")
 		return
 
-	# ▶ Start task if not started
+	# ▶ Start task
 	if TaskManager.active_task == "":
-		TaskManager.start_task("sell_apple")
-		print("Task: Sell 1 apple for 10 coins")
+		TaskManager.start_task(TASK_ID)
+		print("📜 Task started: Sell 1 apple for 10 coins")
 		return
 
-	# ✔ Complete task if player has apple
-	if TaskManager.active_task == "sell_apple":
+	# ✔ Complete task
+	if TaskManager.active_task == TASK_ID:
 		if Inventory.has_item("apple"):
 			Inventory.remove_item("apple", 1)
-			Inventory.add_coins(10)
 
-			# 🔊 Play sell sound
+			# 🔊 Play sound
 			$AudioStreamPlayer2D.play()
 
 			# 🗑 Remove apple from world
 			remove_apple_from_world()
 
-			TaskManager.complete_task()
+			# 🪙 GIVE COINS + MARK COMPLETE (ONE PLACE ONLY)
+			TaskManager.complete_task(TASK_ID, REWARD)
+
 		else:
-			print("You don't have an apple yet!")
+			print(" You don't have an apple yet!")
 
 func remove_apple_from_world():
 	var items = get_tree().get_nodes_in_group("world_items")

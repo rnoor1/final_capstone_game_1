@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
 @onready var animatedsprite: AnimatedSprite2D = $animatedsprite2d
-var coinCounter = 0
-@onready var coinLabel = %"coin count"
+@onready var coinLabel: Label = %"coin count"
 
 const SPEED := 150.0
+
+func _ready() -> void:
+	add_to_group("player")
 
 func _physics_process(_delta):
 	var direction := Vector2.ZERO
 
-	# Movement input (WASD + Arrow keys)
 	if Input.is_action_pressed("moveRight"):
 		direction.x += 1
 	if Input.is_action_pressed("moveLeft"):
@@ -19,7 +20,6 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("moveUp"):
 		direction.y -= 1
 
-	# Apply movement
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()
 		velocity = direction * SPEED
@@ -28,7 +28,7 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
-	# Flip sprite
+	# Sprite flip
 	if direction.x > 0:
 		animatedsprite.flip_h = false
 	elif direction.x < 0:
@@ -41,14 +41,7 @@ func _physics_process(_delta):
 		animatedsprite.play("move")
 
 func _process(_delta):
+	coinLabel.text = "Coin Count: " + str(TaskManager.coins)
+
 	if Input.is_action_just_pressed("interact"):
 		print("E PRESSED")
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-		if area.is_in_group("coin"):
-			setCoin(coinCounter + 50)
-			print(coinCounter)
-	
-func setCoin(newCointCount: int) -> void:
-	coinCounter = newCointCount
-	coinLabel.text = "Coin Count: " + str(coinCounter)
