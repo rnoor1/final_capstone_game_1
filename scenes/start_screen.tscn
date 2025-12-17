@@ -1,10 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://bao5txln7ilob"]
+[gd_scene load_steps=6 format=3 uid="uid://bao5txln7ilob"]
 
 [ext_resource type="Script" uid="uid://o1ibloey3kys" path="res://start_screen.gd" id="1_afy8x"]
 [ext_resource type="Texture2D" uid="uid://bdua706pxp3cx" path="res://building assets/cat cafe/traffic-city-urban-skyscraper-building-cityscape-view-flat-design-vector.jpg" id="2_k1na2"]
 [ext_resource type="AudioStream" uid="uid://btwpio5ff41u0" path="res://building assets/cat cafe/8 - Melancholic flavors.mp3" id="3_vdywr"]
 
 [sub_resource type="SystemFont" id="SystemFont_k1na2"]
+
+[sub_resource type="FontFile" id="FontFile_he1sj"]
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
 
 [node name="start_screen" type="Control"]
 layout_mode = 3
@@ -48,9 +75,9 @@ text = "How To Play
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 468.0
+offset_left = 444.0
 offset_top = 340.0
-offset_right = 710.0
+offset_right = 840.0
 offset_bottom = 399.0
 theme_override_fonts/font = SubResource("SystemFont_k1na2")
 theme_override_font_sizes/font_size = 37
@@ -83,11 +110,18 @@ offset_left = 23.0
 offset_top = 41.0
 offset_right = 366.0
 offset_bottom = 284.0
-text = "Instrutions 
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = SubResource("FontFile_he1sj")
+theme_override_font_sizes/font_size = 15
+text = "Instructions 
 
-- Ss the player enters, they 
+- So the player enters, they 
 will have the chance to 
-explore the city.
+explore the city. 
+Arrow Keys – Move left, right, 
+up, and down
+Space – Jump
+E – Interact with vendors
 While doing so, they need
 to also be on the hunt for 
 coins. 

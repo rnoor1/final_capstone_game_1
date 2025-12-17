@@ -1,6 +1,1 @@
-res://scenes/coin.gd
-res://TaskManager.gd
-res://scenes/player.gd
-res://scenes/vendor.gd
-res://scenes/node_2d.tscn
-res://README.md
+res://scenes/start_screen.tscn
